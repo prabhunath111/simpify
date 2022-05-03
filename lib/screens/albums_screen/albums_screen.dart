@@ -33,8 +33,7 @@ class AlbumsScreen extends StatelessWidget {
                 children: List.generate(logic.getAlbumList.length, (index) {
                   return InkWell(
                     onTap: () async {
-                      await logic.getPhotosOfAlbum(logic.getAlbumList[index].id.toString());
-                      Get.to(PhotosScreen(title: logic.getAlbumList[index].title));
+                      await logic.getPhotosOfAlbum(logic.getAlbumList[index].id.toString(), logic.getAlbumList[index].title);
                     },
                     child: Card(
                       child: Center(

@@ -11,11 +11,14 @@ class UserRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 2.0),
+      padding: const EdgeInsets.symmetric(vertical: 7.0),
       child: Row(
         children: [
           MyText(
             text: header,
+            style: const TextStyle(
+              fontWeight: FontWeight.w700
+            ),
           ),
           MyText(text: description),
         ],

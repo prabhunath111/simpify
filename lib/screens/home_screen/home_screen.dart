@@ -56,24 +56,31 @@ class _HomeScreenState extends State<HomeScreen> {
                                 UserRow(header: "Name: ", description: logic.getUsersModalList[index].name.toString()),
                                 UserRow(header: "Email: ", description: logic.getUsersModalList[index].email.toString()),
                                 UserRow(header: "Address: ", description: logic.getUsersModalList[index].address!.street.toString()),
+                                const SizedBox(height: 16.0),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    ElevatedButton(onPressed: () async {
-                                      final PostsController postsController = Get.put(PostsController());
-                                      await postsController.getPostsFromApi(logic.getUsersModalList[index].id.toString());
-                                      Get.to(const PostsScreen());
-                                    }, child: const MyText(text: "Posts",)),
-                                    ElevatedButton(onPressed: () async {
-                                      final AlbumsController albumsController = Get.put(AlbumsController());
-                                      await albumsController.getAlbumsFromApi(logic.getUsersModalList[index].id.toString());
-                                      Get.to(const AlbumsScreen());
-                                    }, child: const MyText(text: "Albums",)),
-                                    ElevatedButton(onPressed: () async {
-                                      final ToDoController toDosController = Get.put(ToDoController());
-                                      await toDosController.getToDos(logic.getUsersModalList[index].id.toString());
-                                      Get.to(const ToDoScreen());
-                                    }, child: const MyText(text: "To-Do",))
+                                    InkWell(
+                                      onTap: () async {
+                                        final PostsController postsController = Get.put(PostsController());
+                                        await postsController.getPostsFromApi(logic.getUsersModalList[index].id.toString());
+                                      },
+                                      child: _buttonsColumn("Posts",Icons.local_post_office_outlined),
+                                    ),
+                                    InkWell(
+                                      onTap: () async {
+                                        final AlbumsController albumsController = Get.put(AlbumsController());
+                                        await albumsController.getAlbumsFromApi(logic.getUsersModalList[index].id.toString());
+                                      },
+                                      child: _buttonsColumn("Albums", Icons.photo_album_sharp),
+                                    ),
+                                    InkWell(
+                                      onTap: () async {
+                                        final ToDoController toDosController = Get.put(ToDoController());
+                                        await toDosController.getToDos(logic.getUsersModalList[index].id.toString());
+                                      },
+                                      child: _buttonsColumn("To-Do", Icons.today_outlined)
+                                    ),
                                   ],
                                 )
                               ],
@@ -90,5 +97,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> getUsersFromApi() async {
     await usersController.getUsersList();
+  }
+
+  Widget _buttonsColumn(String string, IconData? icon) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, color: Colors.purple),
+        MyText(text: string),
+      ],
+    );
   }
 }

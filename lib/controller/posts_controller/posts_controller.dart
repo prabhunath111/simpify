@@ -4,6 +4,7 @@ import 'package:simpify_demo_assignment/constants/app_api.dart';
 import 'package:simpify_demo_assignment/controller/base_controller.dart';
 import 'package:simpify_demo_assignment/models/comments_model.dart';
 import 'package:simpify_demo_assignment/models/posts_model.dart';
+import 'package:simpify_demo_assignment/screens/posts_screen/posts_screen.dart';
 import 'package:simpify_demo_assignment/services/base_client.dart';
 import 'package:simpify_demo_assignment/widgets/custom_dialog.dart';
 
@@ -25,6 +26,7 @@ class PostsController extends GetxController with BaseController {
       for(int i = 0; i < body.length; i++) {
         _postsList.add(PostsModel.fromJson(body[i]));
       }
+      Get.to(const PostsScreen());
     }
     update();
   }
