@@ -5,12 +5,8 @@ import 'package:simpify_demo_assignment/controller/posts_controller/posts_contro
 import 'package:simpify_demo_assignment/controller/to_do_controller/to_do_controller.dart';
 import 'package:simpify_demo_assignment/controller/users_controller/users_controller.dart';
 import 'package:simpify_demo_assignment/screens/home_screen/widgets/user_row.dart';
-import 'package:simpify_demo_assignment/screens/posts_screen/posts_screen.dart';
-import 'package:simpify_demo_assignment/screens/todo_screen/to_do_screen.dart';
 import 'package:simpify_demo_assignment/widgets/loading.dart';
 import 'package:simpify_demo_assignment/widgets/my_text.dart';
-
-import '../albums_screen/albums_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

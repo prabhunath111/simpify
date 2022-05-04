@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:simpify_demo_assignment/controller/albums_controller/albums_controller.dart';
-import 'package:simpify_demo_assignment/screens/photos_screen/photos_screen.dart';
 import 'package:simpify_demo_assignment/widgets/loading.dart';
 import 'package:simpify_demo_assignment/widgets/my_text.dart';
 
